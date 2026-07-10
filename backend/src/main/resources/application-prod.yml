@@ -5,16 +5,22 @@ spring:
   application:
     name: mini-bank
   datasource:
-    url: ${DATABASE_URL:jdbc:h2:mem:minibank}
-    username: ${DATABASE_USER:sa}
-    password: ${DATABASE_PASS:}
-    driver-class-name: ${DATABASE_DRIVER:org.h2.Driver}
+    url: jdbc:h2:mem:minibank;DB_CLOSE_DELAY=-1
+    username: sa
+    password: 
+    driver-class-name: org.h2.Driver
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
   flyway:
     enabled: false
+  h2:
+    console:
+      enabled: true
 
 management:
   endpoints:
