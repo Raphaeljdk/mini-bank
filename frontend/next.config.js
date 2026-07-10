@@ -1,14 +1,9 @@
 ﻿/** @type {import('next').NextConfig} */
 const nextConfig = {
-  images: {
-    domains: ['upload.wikimedia.org'],
-  },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
+  output: 'standalone',
+  typescript: { ignoreBuildErrors: true },
+  images: { unoptimized: true },
+  trailingSlash: false,
 };
 
 module.exports = nextConfig;
