@@ -1,0 +1,26 @@
+﻿server:
+  port: ${PORT:8080}
+
+spring:
+  application:
+    name: mini-bank
+  datasource:
+    url: ${DATABASE_URL:jdbc:h2:mem:minibank}
+    username: ${DATABASE_USER:sa}
+    password: ${DATABASE_PASS:}
+    driver-class-name: ${DATABASE_DRIVER:org.h2.Driver}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+  flyway:
+    enabled: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,metrics
+  endpoint:
+    health:
+      show-details: always
