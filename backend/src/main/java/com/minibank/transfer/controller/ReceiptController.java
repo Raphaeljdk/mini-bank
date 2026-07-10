@@ -1,4 +1,4 @@
-﻿package com.minibank.transfer.controller;
+package com.minibank.transfer.controller;
 
 import org.springframework.web.bind.annotation.*;
 import java.util.*;

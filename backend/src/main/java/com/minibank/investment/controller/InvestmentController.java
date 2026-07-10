@@ -16,7 +16,7 @@ public class InvestmentController {
     private final UserInvestmentRepository investmentRepository;
     private final UserTransactionRepository transactionRepository;
 
-    // Preços mockados (futuro: API real)
+    // PreÃ§os mockados (futuro: API real)
     private final Map<String, Double> cryptoPrices = Map.of(
         "BTC", 285000.00, "ETH", 15800.00, "BNB", 2100.00,
         "SOL", 680.00, "ADA", 3.20, "XRP", 4.80
@@ -68,7 +68,7 @@ public class InvestmentController {
             return Map.of("error", "Saldo insuficiente! Necessario: R$ " + String.format("%.2f", totalCost));
         }
 
-        // Verificar se já tem esse ativo
+        // Verificar se jÃ¡ tem esse ativo
         List<UserInvestment> existing = investmentRepository.findByUsernameAndAssetSymbol(username, symbol);
         UserInvestment investment;
         if (!existing.isEmpty()) {

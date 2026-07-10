@@ -1,4 +1,4 @@
-﻿package com.minibank.transfer.controller;
+package com.minibank.transfer.controller;
 
 import com.minibank.account.domain.Account;
 import com.minibank.account.repository.AccountRepository;

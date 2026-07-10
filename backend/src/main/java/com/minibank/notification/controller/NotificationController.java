@@ -1,4 +1,4 @@
-﻿package com.minibank.notification.controller;
+package com.minibank.notification.controller;
 
 import org.springframework.web.bind.annotation.*;
 import java.util.*;
