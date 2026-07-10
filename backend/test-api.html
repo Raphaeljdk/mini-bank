@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste API - MiniBank</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            background: #1e293b;
+            border-radius: 16px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+        }
+        h1 { font-size: 28px; margin-bottom: 8px; color: #f1f5f9; }
+        .subtitle { color: #94a3b8; margin-bottom: 30px; font-size: 14px; }
+        .endpoint {
+            background: #0f172a;
+            border-radius: 10px;
+            padding: 16px;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .method {
+            font-weight: bold;
+            font-size: 12px;
+            padding: 4px 10px;
+            border-radius: 6px;
+            text-transform: uppercase;
+        }
+        .method.get { background: #166534; color: #86efac; }
+        .method.post { background: #1e3a5f; color: #93c5fd; }
+        .path {
+            font-family: 'Fira Code', monospace;
+            font-size: 14px;
+            color: #cbd5e1;
+        }
+        button {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
+        }
+        button:hover { background: #2563eb; }
+        .response {
+            background: #0f172a;
+            border-radius: 10px;
+            padding: 16px;
+            margin-top: 20px;
+            min-height: 80px;
+            font-family: 'Fira Code', monospace;
+            font-size: 13px;
+            white-space: pre-wrap;
+            word-break: break-all;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .response.success { border: 1px solid #166534; }
+        .response.error { border: 1px solid #991b1b; }
+        .status-dot {
+            display: inline-block;
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        .status-dot.online { background: #22c55e; box-shadow: 0 0 8px #22c55e; }
+        .status-dot.offline { background: #ef4444; box-shadow: 0 0 8px #ef4444; }
+        .status-bar {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏦 MiniBank</h1>
+        <p class="subtitle">Teste de Conectividade da API</p>
+        <div class="status-bar">
+            <span class="status-dot" id="statusDot"></span>
+            <span id="statusText">Verificando...</span>
+        </div>
+        <div class="endpoint">
+            <div>
+                <span class="method get">GET</span>
+                <span class="path">/actuator/health</span>
+            </div>
+            <button onclick="testEndpoint('/actuator/health')">Testar</button>
+        </div>
+        <div class="endpoint">
+            <div>
+                <span class="method get">GET</span>
+                <span class="path">/api/accounts</span>
+            </div>
+            <button onclick="testEndpoint('/api/accounts')">Testar</button>
+        </div>
+        <div class="endpoint">
+            <div>
+                <span class="method get">GET</span>
+                <span class="path">/api/accounts/dashboard</span>
+            </div>
+            <button onclick="testEndpoint('/api/accounts/dashboard')">Testar</button>
+        </div>
+        <div class="endpoint">
+            <div>
+                <span class="method post">POST</span>
+                <span class="path">/api/accounts</span>
+            </div>
+            <button onclick="testCreateAccount()">Testar</button>
+        </div>
+        <div id="response" class="response">Aguardando teste...</div>
+    </div>
+    <script>
+        const API_URL = 'http://localhost:8080';
+        const responseDiv = document.getElementById('response');
+        const statusDot = document.getElementById('statusDot');
+        const statusText = document.getElementById('statusText');
+
+        async function checkConnection() {
+            try {
+                const res = await fetch(`${API_URL}/actuator/health`);
+                const data = await res.json();
+                statusDot.className = data.status === 'UP' ? 'status-dot online' : 'status-dot offline';
+                statusText.textContent = data.status === 'UP' ? 'API Online' : 'API Degradada';
+            } catch {
+                statusDot.className = 'status-dot offline';
+                statusText.textContent = 'API Offline';
+            }
+        }
+
+        async function testEndpoint(path) {
+            try {
+                const res = await fetch(`${API_URL}${path}`);
+                const data = await res.json();
+                responseDiv.className = 'response success';
+                responseDiv.textContent = JSON.stringify(data, null, 2);
+            } catch (err) {
+                responseDiv.className = 'response error';
+                responseDiv.textContent = 'ERRO: ' + err.message;
+            }
+        }
+
+        async function testCreateAccount() {
+            try {
+                const res = await fetch(`${API_URL}/api/accounts`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        owner: 'Teste ' + new Date().toLocaleTimeString(),
+                        document: Math.random().toString().slice(2, 13),
+                    }),
+                });
+                const data = await res.json();
+                responseDiv.className = 'response success';
+                responseDiv.textContent = JSON.stringify(data, null, 2);
+            } catch (err) {
+                responseDiv.className = 'response error';
+                responseDiv.textContent = 'ERRO: ' + err.message;
+            }
+        }
+
+        checkConnection();
+        setInterval(checkConnection, 10000);
+    </script>
+</body>
+</html>

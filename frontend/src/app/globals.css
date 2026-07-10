@@ -1,0 +1,295 @@
+﻿@import "tailwindcss";
+
+@theme {
+  --color-bg-primary: #020210;
+  --color-bg-secondary: #0a0a2e;
+  --color-bg-tertiary: #121240;
+  --color-bg-card: rgba(10, 10, 50, 0.85);
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #c0c0e0;
+  --color-text-muted: #8080b0;
+  --color-accent-blue: #4da8ff;
+  --color-accent-purple: #a855f7;
+  --color-accent-cyan: #22d3ee;
+  --color-accent-green: #34d399;
+  --color-accent-red: #f87171;
+  --color-accent-amber: #fbbf24;
+  --color-accent-pink: #f472b6;
+  --color-border-subtle: rgba(255, 255, 255, 0.06);
+  --color-border-medium: rgba(255, 255, 255, 0.12);
+  --color-glass: rgba(10, 10, 50, 0.75);
+  --radius: 1rem;
+}
+
+* { border-color: var(--color-border-subtle); }
+
+body {
+  background: #020210;
+  background-image: 
+    radial-gradient(ellipse at 20% 50%, rgba(77, 168, 255, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(168, 85, 247, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(34, 211, 238, 0.04) 0%, transparent 50%);
+  color: var(--color-text-primary);
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ============ FUNDO DE ESTRELAS ANIMADAS ============ */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: 
+    radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1px 1px at 25% 60%, rgba(255,255,255,0.5), transparent),
+    radial-gradient(1px 1px at 35% 10%, rgba(255,255,255,0.7), transparent),
+    radial-gradient(1px 1px at 45% 80%, rgba(255,255,255,0.4), transparent),
+    radial-gradient(1px 1px at 55% 40%, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1px 1px at 65% 15%, rgba(255,255,255,0.5), transparent),
+    radial-gradient(1px 1px at 75% 70%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(1px 1px at 85% 35%, rgba(255,255,255,0.4), transparent),
+    radial-gradient(1.5px 1.5px at 15% 45%, rgba(255,255,255,0.9), transparent),
+    radial-gradient(1.5px 1.5px at 40% 75%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(1.5px 1.5px at 60% 25%, rgba(255,255,255,0.7), transparent),
+    radial-gradient(1.5px 1.5px at 80% 65%, rgba(255,255,255,0.5), transparent),
+    radial-gradient(2px 2px at 30% 90%, rgba(77,168,255,0.6), transparent),
+    radial-gradient(2px 2px at 70% 5%, rgba(168,85,247,0.5), transparent),
+    radial-gradient(2px 2px at 90% 50%, rgba(34,211,238,0.4), transparent);
+  pointer-events: none;
+  z-index: 0;
+  animation: twinkleStars 8s ease-in-out infinite alternate;
+}
+
+@keyframes twinkleStars {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.7; }
+}
+
+/* ============ ANIMAÇÕES PREMIUM ============ */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); filter: blur(4px); }
+  to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-50px); filter: blur(4px); }
+  to { opacity: 1; transform: translateX(0); filter: blur(0); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(50px); filter: blur(4px); }
+  to { opacity: 1; transform: translateX(0); filter: blur(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.8); filter: blur(2px); }
+  to { opacity: 1; transform: scale(1); filter: blur(0); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(77, 168, 255, 0.2), 0 0 40px rgba(77, 168, 255, 0.05); }
+  50% { box-shadow: 0 0 40px rgba(77, 168, 255, 0.4), 0 0 80px rgba(168, 85, 247, 0.15), 0 0 120px rgba(34, 211, 238, 0.05); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-15px) rotate(2deg); }
+  66% { transform: translateY(-5px) rotate(-1deg); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -300% 0; }
+  100% { background-position: 300% 0; }
+}
+
+@keyframes rotateGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes borderGlow {
+  0%, 100% { border-color: rgba(77, 168, 255, 0.3); box-shadow: 0 0 15px rgba(77, 168, 255, 0.1), inset 0 0 15px rgba(77, 168, 255, 0.05); }
+  50% { border-color: rgba(168, 85, 247, 0.6); box-shadow: 0 0 30px rgba(168, 85, 247, 0.2), inset 0 0 30px rgba(168, 85, 247, 0.1); }
+}
+
+@keyframes ripple {
+  0% { box-shadow: 0 0 0 0 rgba(77, 168, 255, 0.5); }
+  100% { box-shadow: 0 0 0 20px rgba(77, 168, 255, 0); }
+}
+
+@keyframes numberCount {
+  from { opacity: 0; transform: translateY(20px) scale(0.5); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px); max-height: 0; }
+  to { opacity: 1; transform: translateY(0); max-height: 1000px; }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.8); opacity: 1; }
+  100% { transform: scale(2); opacity: 0; }
+}
+
+@keyframes cardEntrance {
+  from { opacity: 0; transform: perspective(1000px) rotateX(10deg) translateY(30px); }
+  to { opacity: 1; transform: perspective(1000px) rotateX(0) translateY(0); }
+}
+
+@keyframes textGlow {
+  0%, 100% { text-shadow: 0 0 10px rgba(77,168,255,0.3); }
+  50% { text-shadow: 0 0 25px rgba(77,168,255,0.6), 0 0 50px rgba(168,85,247,0.3); }
+}
+
+/* ============ CLASSES DE ANIMAÇÃO ============ */
+.animate-fade-in-up { animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-fade-in-left { animation: fadeInLeft 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-fade-in-right { animation: fadeInRight 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-scale-in { animation: scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-glow-pulse { animation: glowPulse 3s infinite; }
+.animate-float { animation: float 6s ease-in-out infinite; }
+.animate-border-glow { animation: borderGlow 3s infinite; }
+.animate-ripple { animation: ripple 2s infinite; }
+.animate-number { animation: numberCount 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-slide-down { animation: slideDown 0.4s ease-out forwards; }
+.animate-card-entrance { animation: cardEntrance 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-text-glow { animation: textGlow 2s infinite; }
+
+.delay-100 { animation-delay: 0.1s; opacity: 0; animation-fill-mode: forwards; }
+.delay-200 { animation-delay: 0.2s; opacity: 0; animation-fill-mode: forwards; }
+.delay-300 { animation-delay: 0.3s; opacity: 0; animation-fill-mode: forwards; }
+.delay-400 { animation-delay: 0.4s; opacity: 0; animation-fill-mode: forwards; }
+.delay-500 { animation-delay: 0.5s; opacity: 0; animation-fill-mode: forwards; }
+.delay-600 { animation-delay: 0.6s; opacity: 0; animation-fill-mode: forwards; }
+
+/* ============ SCROLLBAR PREMIUM ============ */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--color-bg-primary); }
+::-webkit-scrollbar-thumb { 
+  background: linear-gradient(180deg, var(--color-accent-blue), var(--color-accent-purple), var(--color-accent-cyan));
+  border-radius: 3px; 
+}
+::-webkit-scrollbar-thumb:hover { 
+  background: linear-gradient(180deg, var(--color-accent-cyan), var(--color-accent-blue), var(--color-accent-purple));
+}
+
+/* ============ GLASS MORPHISM ============ */
+.glass {
+  background: rgba(10, 10, 50, 0.55);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.glass-strong {
+  background: rgba(10, 10, 50, 0.8);
+  backdrop-filter: blur(30px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* ============ CARD 3D PREMIUM ============ */
+.card-3d {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+  border: 1px solid var(--color-border-subtle);
+}
+
+.card-3d:hover {
+  transform: perspective(1000px) rotateX(3deg) rotateY(-3deg) translateY(-10px) scale(1.02);
+  border-color: var(--color-accent-blue);
+  box-shadow: 
+    0 30px 60px rgba(77, 168, 255, 0.2),
+    0 0 100px rgba(168, 85, 247, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* ============ GRADIENT TEXT ============ */
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-purple), var(--color-accent-cyan), var(--color-accent-blue));
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: rotateGradient 4s ease infinite;
+  font-weight: 800;
+}
+
+/* ============ SHIMMER ============ */
+.shimmer {
+  background: linear-gradient(90deg, 
+    var(--color-bg-tertiary) 25%, 
+    rgba(255,255,255,0.08) 50%, 
+    var(--color-bg-tertiary) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* ============ STATUS PULSE ============ */
+.status-pulse {
+  animation: ripple 2s infinite;
+}
+
+/* ============ HOVER GLOW ============ */
+.hover-glow {
+  transition: all 0.3s ease;
+}
+.hover-glow:hover {
+  box-shadow: 0 0 25px rgba(77, 168, 255, 0.3), 0 0 50px rgba(168, 85, 247, 0.1);
+}
+
+/* ============ BOTÃO PREMIUM ============ */
+.btn-premium {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+.btn-premium::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+  transform: rotate(45deg);
+  transition: all 0.6s;
+}
+.btn-premium:hover::after { left: 100%; }
+
+/* ============ INPUT FOCUS GLOW ============ */
+input:focus, select:focus {
+  box-shadow: 0 0 20px rgba(77, 168, 255, 0.2), 0 0 40px rgba(77, 168, 255, 0.05);
+}
+
+/* ============ ROW HOVER ============ */
+tr { transition: all 0.3s ease; }
+tr:hover { 
+  background: rgba(77, 168, 255, 0.05) !important;
+  transform: scale(1.005);
+}
+
+/* ============ BADGE ANIMADO ============ */
+.badge-premium {
+  animation: glowPulse 3s infinite, float 5s ease-in-out infinite;
+}
+
+/* ============ ORB DECORATIVO ============ */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.15;
+  pointer-events: none;
+  animation: float 8s ease-in-out infinite;
+}

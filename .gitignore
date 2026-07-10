@@ -1,0 +1,32 @@
+﻿# Java
+*.class
+*.jar
+*.war
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Docker
+docker-compose.override.yml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node
+node_modules/
+.next/
+out/
+
+# Env
+.env
+.env.local
+.env.production
+
+# Pastas extras
+next-monorepo/
+next-app/

@@ -1,0 +1,17 @@
+﻿{
+  "dashboard": "Dashboard",
+  "accounts": "Accounts",
+  "investments": "Investments",
+  "extract": "Statement",
+  "reconciliation": "Reconciliation",
+  "health": "Health Check",
+  "notifications": "Notifications",
+  "settings": "Settings",
+  "logout": "Logout",
+  "balance": "Balance",
+  "revenue": "Income",
+  "expenses": "Expenses",
+  "welcome": "Hello",
+  "buy": "Buy",
+  "sell": "Sell"
+}

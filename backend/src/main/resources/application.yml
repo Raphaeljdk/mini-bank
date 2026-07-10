@@ -1,0 +1,23 @@
+﻿server:
+  port: 8080
+
+spring:
+  application:
+    name: mini-bank
+  datasource:
+    url: jdbc:postgresql://localhost:5432/minibank
+    username: minibank
+    password: minibank123
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+  flyway:
+    enabled: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,metrics

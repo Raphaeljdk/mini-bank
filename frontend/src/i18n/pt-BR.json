@@ -1,0 +1,17 @@
+﻿{
+  "dashboard": "Dashboard",
+  "accounts": "Contas",
+  "investments": "Investimentos",
+  "extract": "Extrato",
+  "reconciliation": "Conciliação",
+  "health": "Health Check",
+  "notifications": "Notificações",
+  "settings": "Configurações",
+  "logout": "Sair",
+  "balance": "Saldo",
+  "revenue": "Receitas",
+  "expenses": "Despesas",
+  "welcome": "Olá",
+  "buy": "Comprar",
+  "sell": "Vender"
+}
