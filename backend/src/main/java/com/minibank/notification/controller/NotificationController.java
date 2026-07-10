@@ -13,10 +13,10 @@ public class NotificationController {
         String subject = body.get("subject");
         String message = body.get("message");
         
-        // Simulação de envio de email
-        System.out.println("📧 Email enviado para: " + email);
-        System.out.println("📧 Assunto: " + subject);
-        System.out.println("📧 Mensagem: " + message);
+        // SimulaÃ§Ã£o de envio de email
+        System.out.println("ðŸ“§ Email enviado para: " + email);
+        System.out.println("ðŸ“§ Assunto: " + subject);
+        System.out.println("ðŸ“§ Mensagem: " + message);
         
         return Map.of("message", "Email enviado com sucesso para " + email + "! (simulado)");
     }
